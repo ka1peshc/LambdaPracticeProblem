@@ -14,6 +14,7 @@ namespace LearningLambda
             AddRecord(listPersonInCity);
             Retrieving_top_two_Record(listPersonInCity);
             CheckIfAnyRecordInBetween(listPersonInCity);
+            AverageAge(listPersonInCity);
         }
 
         private static void AddRecord(List<Person> listPersonInCity)
@@ -45,6 +46,11 @@ namespace LearningLambda
             {
                 Console.WriteLine("No records found");
             }
+        }
+
+        private static void AverageAge(List<Person> listPersonInCity)
+        {
+            Console.WriteLine("Average age is {0}", listPersonInCity.Average(e=> e.Age));
         }
     }
 }
