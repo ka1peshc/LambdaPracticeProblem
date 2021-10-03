@@ -13,6 +13,7 @@ namespace LearningLambda
             List<Person> listPersonInCity = new List<Person>();
             AddRecord(listPersonInCity);
             Retrieving_top_two_Record(listPersonInCity);
+            CheckIfAnyRecordInBetween(listPersonInCity);
         }
 
         private static void AddRecord(List<Person> listPersonInCity)
@@ -31,6 +32,18 @@ namespace LearningLambda
             foreach (Person p in listPersonInCity.FindAll(e => (e.Age >= 60)).Take(2).ToList())
             {
                 Console.WriteLine("Name: {0} Age: {1}", p.Name, p.Age);
+            }
+        }
+
+        private static void CheckIfAnyRecordInBetween(List<Person> listPersonInCity)
+        {
+            if( listPersonInCity.Any(e => (e.Age > 12 && e.Age <= 18)))
+            {
+                Console.WriteLine("There exists records");
+            }
+            else
+            {
+                Console.WriteLine("No records found");
             }
         }
     }
